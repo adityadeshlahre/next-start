@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["./../config-eslint/next.json"],
+  extends: ["@repo/typescript-config/base.json"],
   parserOptions: {
     project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,

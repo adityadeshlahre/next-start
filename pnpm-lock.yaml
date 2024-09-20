@@ -46,12 +46,18 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.2.13
         version: 14.2.13
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config-eslint
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/config-tailwind
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/config-typescript
@@ -95,12 +101,18 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.2.13
         version: 14.2.13
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config-eslint
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/config-tailwind
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/config-typescript

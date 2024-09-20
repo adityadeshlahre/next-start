@@ -1,7 +1,7 @@
 {
   "name": "@repo/types",
   "version": "1.0.0",
-  "main": "./src/index.ts",
+  "main": "./index.ts",
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
