@@ -1,0 +1,34 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile.build
+    image: next-start-web:latest
+    container_name: next-start-web
+    expose:
+      - 5173
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./apps/web/:/app/apps/web
+    networks:
+      - app_network
+
+  server:
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile.build
+    image: next-start-server:latest
+    container_name: next-start-server
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/server/:/app/apps/server
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
