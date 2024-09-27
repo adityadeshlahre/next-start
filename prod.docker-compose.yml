@@ -2,12 +2,12 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./apps/web/Dockerfile
-    container_name: next-start-web
+      dockerfile: ./apps/web/Dockerfile.prod
+    container_name: next-start-web-prod
     expose:
-      - 3000
+      - 5173
     ports:
-      - "3000:3000"
+      - "5173:5173"
     volumes:
       - ./apps/web/:/app/apps/web
     environment:
@@ -22,17 +22,17 @@ services:
   docs:
     build:
       context: .
-      dockerfile: ./apps/docs/Dockerfile
-    container_name: next-start-docs
+      dockerfile: ./apps/docs/Dockerfile.prod
+    container_name: next-start-docs-prod
     expose:
-      - 3001
+      - 3000
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
       - ./apps/docs/:/app/apps/docs
     environment:
       - DATABASE_URL=postgresql://opensource:sourceopen@postgres:5432/fasoshop
-      - PORT=3001
+      - PORT=3000
       - UI_PORT=5173
     depends_on:
       - postgres

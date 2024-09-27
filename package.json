@@ -7,9 +7,14 @@
   "scripts": {
     "build": "turbo build",
     "db:migrate:deploy": "turbo run db:migrate:deploy",
-    "db:push": "turbo run db:push",
     "db:seed": "turbo run db:seed",
     "generate": "turbo run generate",
+    "db:generate": "prisma generate --schema=./packages/database/prisma/schema.prisma",
+    "db:studio": "prisma studio --schema=./packages/database/prisma/schema.prisma",
+    "db:push": "prisma db push --schema=./packages/database/prisma/schema.prisma --skip-generate --accept-data-loss",
+    "db:migrate": "prisma migrate dev --schema=./packages/database/prisma/schema.prisma",
+    "db:resolve": "prisma migrate resolve --schema=./packages/database/prisma/schema.prisma --applied 20240906204550_init",
+    "db:deploy": "prisma migrate deploy --schema=./packages/database/prisma/schema.prisma",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
@@ -17,13 +22,14 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@prisma/nextjs-monorepo-workaround-plugin": "^5.20.0",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "prisma": "5.10.2",
     "tsx": "^4.19.1",
     "turbo": "^2.1.2"
   },
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.11.0",
   "engines": {
     "node": ">=18"
   },

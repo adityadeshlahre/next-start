@@ -48,16 +48,22 @@ WORKDIR /app
 
 COPY --from=installer /app .
 
-RUN apk add --no-cache nginx
+# RUN apk add --no-cache nginx
 
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+# EXPOSE 80
 EXPOSE 3000
-EXPOSE 5173
+EXPOSE 3001
 
 # CMD ["sh", "-c", "concurrently 'pnpm db:generate && pnpm db:migrate' 'cd apps/server && pnpm dev' 'cd apps/web && pnpm dev'"]
 
 # CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy && nginx -g 'daemon off;' && concurrently 'cd apps/server && pnpm dev' 'cd apps/web && pnpm dev'"]
 
-CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy && nginx -g 'daemon off;' & concurrently 'cd apps/server && pnpm dev' 'cd apps/web && pnpm dev'"]
+CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy && nginx -g 'daemon off;' & concurrently 'cd apps/docs && pnpm dev' 'cd apps/web && pnpm dev'"]
+
+# CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy"]
+
+# CMD ["sh", "-c", "cd apps/web && pnpm dev"]
+
+# CMD ["sh", "-c", "cd apps/docs && pnpm dev"]

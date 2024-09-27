@@ -6,24 +6,24 @@ services:
     image: next-start-web:latest
     container_name: next-start-web
     expose:
-      - 5173
+      - 3000
     ports:
-      - "5173:5173"
+      - "3000:3000"
     volumes:
       - ./apps/web/:/app/apps/web
     networks:
       - app_network
 
-  server:
+  docs:
     build:
       context: .
-      dockerfile: ./apps/server/Dockerfile.build
-    image: next-start-server:latest
-    container_name: next-start-server
+      dockerfile: ./apps/docs/Dockerfile.build
+    image: next-start-docs:latest
+    container_name: next-start-docs
     expose:
-      - 3000
+      - 3001
     ports:
-      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ./apps/server/:/app/apps/server
     networks:

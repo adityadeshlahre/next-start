@@ -41,8 +41,8 @@
 
 #       - name: Push server service image
 #         run: |
-#           docker tag next-start-server:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-server:latest
-#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-server:latest
+#           docker tag next-start-docs:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs:latest
+#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs:latest
 
 #       - name: Push full web-server image
 #         run: |

@@ -44,12 +44,15 @@ RUN pnpm add -g nodemon dotenv dotenv-cli
 
 WORKDIR /app
 
-# Don't run production as root
-# RUN groupadd --system --gid 1001 nextjs
-# RUN useradd --system --uid 1001 nodejs
-# USER nodejs
 COPY --from=installer /app .
+# COPY --from=installer /app/apps/web/.next/standalone ./
+# COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
+# COPY --from=installer /app/apps/web/public ./apps/web/public
 
-EXPOSE 3000
+EXPOSE 3001
 
-CMD cd apps/docs/ && pnpm dev
+# CMD cd apps/docs/ && pnpm dev
+
+# CMD ["pnpm", "dev", "--port", "3001"]
+
+CMD ["pnpm", "dev"]
