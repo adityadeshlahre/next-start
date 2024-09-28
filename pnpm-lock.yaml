@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@prisma/client':
-        specifier: 5.10.2
-        version: 5.10.2(prisma@5.10.2)
+        specifier: 5.20.0
+        version: 5.20.0(prisma@5.10.2)
     devDependencies:
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: ^5.20.0
@@ -660,15 +660,6 @@ packages:
   '@pkgr/utils@2.4.2':
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
-
-  '@prisma/client@5.10.2':
-    resolution: {integrity: sha512-ef49hzB2yJZCvM5gFHMxSFL9KYrIP9udpT5rYo0CsHD4P9IKj473MbhU1gjKKftiwWBTIyrt9jukprzZXazyag==}
-    engines: {node: '>=16.13'}
-    peerDependencies:
-      prisma: '*'
-    peerDependenciesMeta:
-      prisma:
-        optional: true
 
   '@prisma/client@5.20.0':
     resolution: {integrity: sha512-CLv55ZuMuUawMsxoqxGtLT3bEZoa2W8L3Qnp6rDIFWy+ZBrUcOFKdoeGPSnbBqxc3SkdxJrF+D1veN/WNynZYA==}
@@ -3359,7 +3350,7 @@ snapshots:
       picocolors: 1.1.0
       tslib: 2.6.2
 
-  '@prisma/client@5.10.2(prisma@5.10.2)':
+  '@prisma/client@5.20.0(prisma@5.10.2)':
     optionalDependencies:
       prisma: 5.10.2
 

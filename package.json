@@ -34,7 +34,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@prisma/client": "5.10.2"
+    "@prisma/client": "5.20.0"
   },
   "name": "nextjs"
 }
