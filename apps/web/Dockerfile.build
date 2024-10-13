@@ -44,8 +44,10 @@ COPY --from=installer /app .
 # COPY --from=installer /app/apps/web/public ./apps/web/public
 
 EXPOSE 3000
+ENV HOST=0.0.0.0
 
 # WORKDIR /app/apps/web
 
-CMD ["pnpm", "dev"]
+# CMD ["pnpm", "dev"]
 # CMD node apps/web/server.js
+CMD node apps/web/.next/standalone/apps/web/server.js

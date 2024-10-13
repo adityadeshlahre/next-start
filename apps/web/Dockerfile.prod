@@ -51,5 +51,7 @@ COPY --from=installer /app .
 
 EXPOSE 3000
 
-CMD cd apps/server/ && pnpm start
+ENV HOST=0.0.0.0
+
+CMD ["cd", "apps/server/", "&&", "pnpm", "start", "--hostname", "0.0.0.0"]
 # CMD node apps/web/server.js

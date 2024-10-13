@@ -35,6 +35,8 @@ RUN pnpm turbo run build --filter=docs...
 
 FROM base AS runner
 
+ENV NEXT_TELEMETRY_DISABLED=1
+
 ENV PNPM_HOME="/root/.local/share/pnpm"
 ENV PATH="${PATH}:${PNPM_HOME}"
 
@@ -45,12 +47,20 @@ RUN pnpm add -g turbo concurrently nodemon dotenv dotenv-cli prisma
 WORKDIR /app
 
 COPY --from=installer /app .
-# COPY --from=installer /app/apps/web/.next/standalone ./
-# COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
-# COPY --from=installer /app/apps/web/public ./apps/web/public
+# COPY --from=installer /app/apps/docs/.next/standalone ./
+COPY --from=installer /app/apps/docs/.next/static ./apps/docs/.next/static
+COPY --from=installer /app/apps/docs/public ./apps/docs/public
+# COPY --from=installer /app/apps/docs/package.json ./
+# COPY --from=installer pnpm-lock.yaml ./
+# COPY --from=installer pnpm-workspace.yaml ./
 
+ENV PORT=3001
 EXPOSE 3001
 
-CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy"]
-
-CMD ["sh", "-c", "cd apps/docs && pnpm dev"]
+# CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy"]
+# CMD ["sh", "-c", "cd apps/docs && pnpm dev"]
+# CMD ["node", "apps/docs/server.js"]
+# CMD ["pnpm", "start"]
+# CMD node apps/docs/server.js
+CMD node apps/docs/.next/standalone/apps/docs/server.js
+# CMD node server.js

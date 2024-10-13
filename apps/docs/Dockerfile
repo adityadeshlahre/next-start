@@ -35,12 +35,14 @@ RUN pnpm turbo run build --filter=docs...
 
 FROM base AS runner
 
+ENV NEXT_TELEMETRY_DISABLED=1
+
 ENV PNPM_HOME="/root/.local/share/pnpm"
 ENV PATH="${PATH}:${PNPM_HOME}"
 
 RUN npm install --global pnpm@latest
 
-RUN pnpm add -g nodemon dotenv dotenv-cli
+RUN pnpm add -g dotenv dotenv-cli
 
 WORKDIR /app
 
@@ -51,8 +53,12 @@ COPY --from=installer /app .
 
 EXPOSE 3001
 
+ENV PORT=3001
+
 # CMD cd apps/docs/ && pnpm dev
 
 # CMD ["pnpm", "dev", "--port", "3001"]
 
-CMD ["pnpm", "dev"]
+# CMD ["pnpm", "dev"]
+
+CMD node server.js
