@@ -20,12 +20,13 @@
     "lint": "turbo run lint",
     "type-check": "turbo type-check",
     "clean": "turbo run clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "package:update": "pnpm update --latest"
   },
   "devDependencies": {
     "@prisma/nextjs-monorepo-workaround-plugin": "^5.20.0",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "prisma": "5.20.0",
     "tsx": "^4.19.1",
     "turbo": "^2.1.3"
