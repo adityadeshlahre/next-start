@@ -1,3 +1,4 @@
+/* eslint-disable */
 // import { PrismaClient } from "@prisma/client";
 
 // export const prisma = global.prisma || new PrismaClient();
@@ -10,6 +11,7 @@
 
 import { PrismaClient } from "@prisma/client";
 
+// eslint-disable-next-line import/no-mutable-exports
 let prisma: PrismaClient;
 
 declare global {

@@ -19,7 +19,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo type-check",
-    "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/server/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/tailwind-config/node_modules ./packages/eslint-config/node_modules ./pnpm-lock.yaml",
+    "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/docs/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/config-tailwind/node_modules ./packages/config-eslint/node_modules ./packages/config-typescript/node_modules ./pnpm-lock.yaml",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "package:update": "pnpm update --latest"
   },
@@ -32,12 +32,12 @@
     "tsx": "^4.19.2",
     "turbo": "^2.3.3"
   },
-  "packageManager": "pnpm@9.11.0",
+  "packageManager": "pnpm@9.14.4",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "@prisma/client": "6.0.1"
   },
-  "name": "nextjs"
+  "name": "next-start"
 }
