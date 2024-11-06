@@ -34,9 +34,34 @@ module.exports = {
     },
   },
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "**/*.css"],
-  // add rules configurations here
+  plugins: ["turbo", "@typescript-eslint", "@next/next"],
   rules: {
-    "import/no-default-export": "off",
+    "import/no-default-export": "warn",
+    "@typescript-eslint/dot-notation": [
+      "warn",
+      {
+        allowKeywords: true,
+        allowPrivateClassPropertyAccess: false,
+        allowProtectedClassPropertyAccess: false,
+        allowIndexSignaturePropertyAccess: false,
+      },
+    ],
+    "@typescript-eslint/no-empty-function": [
+      "warn",
+      {
+        allow: ["arrowFunctions", "functions", "methods"],
+      },
+    ],
+    "@typescript-eslint/no-unused-expressions": [
+      "warn",
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: false,
+      },
+    ],
+    "@next/next/no-duplicate-head": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
   },
   overrides: [
     {

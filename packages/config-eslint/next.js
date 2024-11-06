@@ -19,6 +19,8 @@ module.exports = {
       "@vercel/style-guide/eslint/browser",
       "@vercel/style-guide/eslint/react",
       "@vercel/style-guide/eslint/next",
+      "eslint-config-turbo",
+      "eslint-config-next",
     ].map(require.resolve),
     "turbo",
   ],
@@ -40,7 +42,7 @@ module.exports = {
     },
   },
   ignorePatterns: ["node_modules/", "dist/"],
-  // add rules configurations here
+  plugins: ["turbo", "@typescript-eslint", "@next/next"],
   rules: {
     "import/no-default-export": "warn",
     "@typescript-eslint/dot-notation": [
