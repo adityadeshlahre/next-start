@@ -40,7 +40,7 @@ jobs:
 
       - name: Build Prod Docker images using Docker Compose for web & server
         run: |
-          docker-compose -f prod.build.docker-compose.yml build
+          docker-compose -f prod.docker-compose.yml build
 
       - name: Push dev web service image
         run: |

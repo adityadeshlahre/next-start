@@ -50,6 +50,7 @@ COPY --from=installer /app .
 # COPY --from=installer /app/apps/docs/.next/standalone ./
 # COPY --from=installer /app/apps/docs/.next/static ./static
 # COPY --from=installer /app/apps/docs/public ./public
+WORKDIR /app/apps/docs
 
 EXPOSE 3001
 
@@ -59,8 +60,8 @@ ENV PORT=3001
 
 # CMD ["pnpm", "dev", "--port", "3001"]
 
-# CMD ["pnpm", "dev", "--hostname", "0.0.0.0"]
+CMD ["pnpm", "dev", "--hostname", "0.0.0.0", "--port", "3001"]
 
-CMD ["cd", "./apps/docs/", "&&","pnpm", "dev", "--hostname", "0.0.0.0"]
+# CMD ["cd", "./apps/docs/", "&&","pnpm", "dev", "--hostname", "0.0.0.0"]
 
 # CMD HOSTNAME="0.0.0.0" node ./apps/docs/.next/standalone/apps/docs/server.js
