@@ -49,9 +49,9 @@ WORKDIR /app
 # COPY --from=installer /app .
 COPY --from=installer /app/apps/docs/.next/standalone ./
 COPY --from=installer /app/apps/docs/.next/static ./apps/docs/.next/static
-COPY --from=installer /app/apps/docs/.next/static ./apps/docs/.next/standalone/apps/docs/.next/static
+# COPY --from=installer /app/apps/docs/.next/static ./apps/docs/.next/standalone/apps/docs/.next/static
 COPY --from=installer /app/apps/docs/public ./apps/docs/public
-COPY --from=installer /app/apps/docs/public ./apps/docs/.next/standalone/apps/docs/public
+# COPY --from=installer /app/apps/docs/public ./apps/docs/.next/standalone/apps/docs/public
 
 ENV PORT=3001
 EXPOSE 3001
@@ -63,5 +63,5 @@ ENV HOSTNAME=0.0.0.0
 # CMD ["pnpm", "start"]
 # CMD node apps/docs/server.js
 # CMD HOSTNAME="0.0.0.0" node ./apps/docs/server.js
-CMD HOSTNAME="0.0.0.0" node ./apps/docs/.next/standalone/apps/docs/server.js
+CMD ["node", "./apps/docs/.next/standalone/server.js"]
 # CMD node server.js
