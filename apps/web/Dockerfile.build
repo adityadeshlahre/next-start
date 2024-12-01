@@ -54,4 +54,4 @@ ENV HOSTNAME=0.0.0.0
 # CMD ["pnpm", "dev"]
 # CMD node apps/web/server.js
 # CMD  HOSTNAME="0.0.0.0" node ./apps/web/server.js
-CMD ["node", "./apps/web/.next/standalone/server.js"]
+CMD ["node", "./apps/web/.next/standalone/apps/web/server.js"]

@@ -14,7 +14,7 @@ module.exports = {
     if (isServer) {
       config.plugins = [...config.plugins, new PrismaPlugin()];
     }
-    caches = false;
+    config.cache = false;
     return config;
   },
 };
