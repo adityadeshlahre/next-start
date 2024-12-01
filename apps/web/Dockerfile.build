@@ -27,6 +27,10 @@ COPY turbo.json turbo.json
 
 RUN pnpm i
 
+#PRISMA
+RUN pnpx prisma generate --schema=./packages/database/prisma/schema.prisma
+RUN mkdir -p /app/.prisma
+RUN cp -r ./node_modules/.pnpm/@prisma+client@6.0.0_prisma@6.0.0/node_modules/@prisma/client /app/.prisma
 RUN pnpm turbo run build --filter=web...
 
 FROM base AS runner
@@ -44,6 +48,11 @@ COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
 # COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/standalone/apps/web/.next/static
 COPY --from=installer /app/apps/web/public ./apps/web/public
 # COPY --from=installer /app/apps/web/public ./apps/web/.next/standalone/apps/web/public
+
+#PRISMA
+COPY --from=installer /app/.prisma /app/.prisma
+COPY --from=installer /app/.prisma /app/node_modules/.prisma
+COPY --from=installer /app/.prisma /app/node_modules/@prisma
 
 ENV PORT=3000
 EXPOSE 3000
