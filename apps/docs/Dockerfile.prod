@@ -51,4 +51,6 @@ COPY --from=installer /app .
 
 EXPOSE 3001
 
-CMD cd apps/docs/ && pnpm start
+ENV HOST=0.0.0.0
+
+CMD ["cd", "apps/docs/", "&&", "pnpm", "start", "--hostname", "0.0.0.0"]

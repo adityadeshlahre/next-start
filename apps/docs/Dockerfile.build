@@ -55,6 +55,7 @@ COPY --from=installer /app/apps/docs/public ./apps/docs/.next/standalone/apps/do
 
 ENV PORT=3001
 EXPOSE 3001
+ENV HOSTNAME=0.0.0.0
 
 # CMD ["sh", "-c", "pnpm db:generate && pnpm db:push && pnpm db:resolve && pnpm db:deploy"]
 # CMD ["sh", "-c", "cd apps/docs && pnpm dev"]

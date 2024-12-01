@@ -34,6 +34,34 @@ jobs:
         run: |
           docker-compose -f build.docker-compose.yml build
 
+      - name: Build Dev Docker images using Docker Compose for full setup
+        run: |
+          docker-compose -f dev.docker-compose.yml build
+
+      - name: Build Prod Docker images using Docker Compose for web & server
+        run: |
+          docker-compose -f prod.build.docker-compose.yml build
+
+      - name: Push dev web service image
+        run: |
+          docker tag next-start-web:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-web:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-web-dev:latest
+
+      - name: Push dev server service image
+        run: |
+          docker tag next-start-docs:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs-dev:latest
+
+      - name: Push prod web service image
+        run: |
+          docker tag next-start-web:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-web:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-web-prod:latest
+
+      - name: Push prod server service image
+        run: |
+          docker tag next-start-docs:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/next-start-docs-prod:latest
+
       - name: Push web service image
         run: |
           docker tag next-start-web:latest ${{ secrets.DOCKERHUB_USERNAME }}/next-start-web:latest

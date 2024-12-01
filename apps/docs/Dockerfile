@@ -46,10 +46,10 @@ RUN pnpm add -g dotenv dotenv-cli
 
 WORKDIR /app
 
-# COPY --from=installer /app .
-COPY --from=installer /app/apps/docs/.next/standalone ./
-COPY --from=installer /app/apps/docs/.next/static ./static
-COPY --from=installer /app/apps/docs/public ./public
+COPY --from=installer /app .
+# COPY --from=installer /app/apps/docs/.next/standalone ./
+# COPY --from=installer /app/apps/docs/.next/static ./static
+# COPY --from=installer /app/apps/docs/public ./public
 
 EXPOSE 3001
 
@@ -59,6 +59,8 @@ ENV PORT=3001
 
 # CMD ["pnpm", "dev", "--port", "3001"]
 
-# CMD ["pnpm", "dev"]
+# CMD ["pnpm", "dev", "--hostname", "0.0.0.0"]
 
-CMD HOSTNAME="0.0.0.0" node ./apps/docs/server.js
+CMD ["cd", "./apps/docs/", "&&","pnpm", "dev", "--hostname", "0.0.0.0"]
+
+# CMD HOSTNAME="0.0.0.0" node ./apps/docs/.next/standalone/apps/docs/server.js

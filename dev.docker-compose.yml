@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
-    container_name: next-start-web
+    container_name: next-start-web-dev
     expose:
       - 3000
     ports:
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/docs/Dockerfile
-    container_name: next-start-docs
+    container_name: next-start-docs-dev
     expose:
       - 3001
     ports:

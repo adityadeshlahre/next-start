@@ -38,10 +38,10 @@ RUN npm install --global pnpm@latest
 
 WORKDIR /app
 
-# COPY --from=installer /app .
-COPY --from=installer /app/apps/web/.next/standalone ./
-COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
-COPY --from=installer /app/apps/web/public ./apps/web/public
+COPY --from=installer /app .
+# COPY --from=installer /app/apps/web/.next/standalone ./
+# COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
+# COPY --from=installer /app/apps/web/public ./apps/web/public
 
 EXPOSE 3000
 
@@ -51,4 +51,6 @@ ENV HOST=0.0.0.0
 
 # CMD ["pnpm", "dev", "--hostname", "0.0.0.0"]
 
-CMD HOSTNAME="0.0.0.0" node ./apps/web/server.js
+CMD ["cd", "./apps/web/", "&&","pnpm", "dev", "--hostname", "0.0.0.0"]
+
+# CMD HOSTNAME="0.0.0.0" node ./apps/web/.next/standalone/apps/web/server.js
