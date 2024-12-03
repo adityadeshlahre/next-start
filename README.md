@@ -2,6 +2,10 @@
 
 This is my personal prefered stack for for starting simple full stack projects in one go. Initalized with turborepo in furhter i have added all the stacks along the way.
 
+### Web Live URL [here](https://next-start-web.onrender.com)
+
+### Docs Live URL [here](https://next-start-docs.onrender.com)
+
 > [!IMPORTANT]  
 > This is using `pnpm` as package manager.
 
