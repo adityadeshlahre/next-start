@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile.build
+      args:
+        DATABASE_URL: ${DATABASE_URL}
     image: next-start-web:latest
     container_name: next-start-web
     expose:
@@ -20,6 +22,8 @@ services:
     build:
       context: .
       dockerfile: ./apps/docs/Dockerfile.build
+      args:
+        DATABASE_URL: ${DATABASE_URL}
     image: next-start-docs:latest
     container_name: next-start-docs
     expose:
