@@ -14,7 +14,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const user = await prisma.user.create({
     data: {
       name: parsedBody.name,
-      username: parsedBody.name,
+      username: parsedBody.username,
       email: parsedBody.email,
       password: parsedBody.password,
     },
