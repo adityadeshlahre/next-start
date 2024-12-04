@@ -10,6 +10,7 @@ export async function signup(
   const user = await prisma.user.create({
     data: {
       name: username,
+      username: username,
       email: email,
       password: password,
     },

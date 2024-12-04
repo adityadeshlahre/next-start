@@ -37,4 +37,4 @@ yarn-error.log*
 dist/
 
 #migrations
-migrations
+# migrations
