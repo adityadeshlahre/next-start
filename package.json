@@ -19,15 +19,15 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo type-check",
-    "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/server/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/tailwind-config/node_modules ./packages/eslint-config/node_modules",
+    "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/server/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/tailwind-config/node_modules ./packages/eslint-config/node_modules ./pnpm-lock.yaml",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "package:update": "pnpm update --latest"
   },
   "devDependencies": {
-    "@prisma/nextjs-monorepo-workaround-plugin": "^6.0.0",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.0.1",
     "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
-    "prisma": "6.0.0",
+    "prisma": "6.0.1",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.2",
     "turbo": "^2.3.3"
@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@prisma/client": "6.0.0"
+    "@prisma/client": "6.0.1"
   },
   "name": "nextjs"
 }

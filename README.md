@@ -41,10 +41,10 @@ packages{folder}
 - [x] ESLinting
 - [ ] Lint Stage
 - [ ] husky
-- [ ] Docker
-- [ ] CI (to build and push image also run in render)
+- [x] Docker
+- [x] CI (to build and push image also run in render)
 - [ ] CommitLint
-- [ ] centeralized ENV
+- [x] centeralized ENV
 - [ ] cleanup
 
 ### Getting Started

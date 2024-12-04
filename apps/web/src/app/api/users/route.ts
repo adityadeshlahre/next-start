@@ -9,8 +9,7 @@ export async function GET(): Promise<NextResponse> {
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-  const body = await req.json();
-  const parsedBody = UserSchema.parse(body);
+  const parsedBody = UserSchema.parse(await req.json());
 
   const user = await prisma.user.create({
     data: {

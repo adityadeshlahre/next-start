@@ -2,19 +2,18 @@
 
 import prisma from "@repo/database";
 
-export async function signup(
-  username: string,
-  password: string,
-  email: string
-) {
-  const user = await prisma.user.create({
-    data: {
-      name: username,
-      username: username,
-      email: email,
-      password: password,
-    },
-  });
+const signup =
+  (username: string, password: string, email: string) => async () => {
+    const user = await prisma.user.create({
+      data: {
+        name: username,
+        username: username,
+        email: email,
+        password: password,
+      },
+    });
 
-  return user;
-}
+    return user;
+  };
+
+export default signup;
