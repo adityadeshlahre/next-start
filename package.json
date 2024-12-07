@@ -21,7 +21,7 @@
     "type-check": "turbo type-check",
     "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/docs/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/config-tailwind/node_modules ./packages/config-eslint/node_modules ./packages/config-typescript/node_modules ./pnpm-lock.yaml",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install && pnpm run db:generate && pnpm i",
+    "prepare": "husky",
     "package:update": "pnpm update --latest"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.0.1",
     "husky": "^9.1.7",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "prisma": "6.0.1",
     "rimraf": "^6.0.1",
@@ -44,9 +44,15 @@
     "@prisma/client": "6.0.1"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "pnpm run format",
-      "pnpm run lint"
+    "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "packages/database/prisma/schema.prisma": [
+      "prisma format"
     ]
   },
   "name": "next-start"
