@@ -3,6 +3,7 @@ FROM node:22-alpine AS base
 RUN apk add --no-cache openssl
 
 FROM base AS builder
+
 ARG DATABASE_URL
 ENV DATABASE_URL=${DATABASE_URL}
 ENV PNPM_HOME="/root/.local/share/pnpm"
@@ -36,11 +37,13 @@ ENV DATABASE_URL=${DATABASE_URL}
 RUN pnpx prisma generate --schema=./packages/database/prisma/schema.prisma
 RUN pnpx prisma migrate deploy --schema=./packages/database/prisma/schema.prisma
 RUN mkdir -p /app/.prisma
-RUN cp -r ./node_modules/.pnpm/@prisma+client@6.0.1_prisma@6.0.1/node_modules/@prisma/client /app/.prisma
-RUN cp -r ./node_modules/.pnpm/@prisma+client@6.0.1_prisma@6.0.1/node_modules/.prisma /app/node_modules/.prisma
+RUN cp -r ./node_modules/.pnpm/@prisma+client@6.1.0_prisma@6.1.0/node_modules/@prisma/client /app/.prisma
+RUN cp -r ./node_modules/.pnpm/@prisma+client@6.1.0_prisma@6.1.0/node_modules/.prisma /app/node_modules/.prisma
 RUN pnpm turbo run build --filter=web...
 
 FROM base AS runner
+
+ENV NEXT_TELEMETRY_DISABLED 1
 
 ENV PNPM_HOME="/root/.local/share/pnpm"
 ENV PATH="${PATH}:${PNPM_HOME}"
@@ -54,10 +57,10 @@ COPY --from=installer /app/node_modules/.prisma /app/node_modules/.prisma
 
 # COPY --from=installer /app .
 COPY --from=installer /app/apps/web/.next/standalone ./
-COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/standalone/apps/web/.next/static
-COPY --from=installer /app/apps/web/public ./apps/web/public
 COPY --from=installer /app/apps/web/public ./apps/web/.next/standalone/apps/web/public
+COPY --from=installer /app/apps/web/.next/static ./apps/web/.next/static
+COPY --from=installer /app/apps/web/public ./apps/web/public
 
 
 # RUN mkdir -p /app/node_modules/@prisma
