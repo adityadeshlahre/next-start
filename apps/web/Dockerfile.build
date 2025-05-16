@@ -36,9 +36,9 @@ ARG DATABASE_URL
 ENV DATABASE_URL=${DATABASE_URL}
 RUN pnpx prisma generate --schema=./packages/database/prisma/schema.prisma
 RUN pnpx prisma migrate deploy --schema=./packages/database/prisma/schema.prisma
-RUN mkdir -p /app/.prisma
-RUN cp -r ./node_modules/.pnpm/@prisma+client@6.2.1_prisma@6.2.1/node_modules/@prisma/client /app/.prisma
-RUN cp -r ./node_modules/.pnpm/@prisma+client@6.2.1_prisma@6.2.1/node_modules/.prisma /app/node_modules/.prisma
+# RUN mkdir -p /app/.prisma
+# RUN cp -r ./node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1/node_modules/@prisma/client /app/.prisma
+# RUN cp -r ./node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1/node_modules/.prisma /app/node_modules/.prisma
 RUN pnpm turbo run build --filter=web...
 
 FROM base AS runner
@@ -52,8 +52,8 @@ RUN npm install --global pnpm@latest
 
 WORKDIR /app
 
-COPY --from=installer /app/.prisma /app/
-COPY --from=installer /app/node_modules/.prisma /app/node_modules/.prisma
+# COPY --from=installer /app/.prisma /app/
+# COPY --from=installer /app/node_modules/.prisma /app/node_modules/.prisma
 
 # COPY --from=installer /app .
 COPY --from=installer /app/apps/web/.next/standalone ./
