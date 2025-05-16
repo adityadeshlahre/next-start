@@ -26,4 +26,4 @@ jobs:
 
       - name: Build Docker images using Docker Compose for web & server
         run: |
-          docker-compose -f build.docker-compose.yml build
+          docker-compose -f build.docker-compose.yml build --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }}
