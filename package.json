@@ -31,7 +31,7 @@
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "prisma": "6.8.1",
+    "prisma": "6.8.2",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.4",
     "turbo": "^2.5.3"
@@ -41,7 +41,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@prisma/client": "6.8.1"
+    "@prisma/client": "6.8.2"
   },
   "lint-staged": {
     "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
