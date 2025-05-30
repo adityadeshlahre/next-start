@@ -18,7 +18,7 @@
     "db:deploy": "prisma migrate deploy --schema=./packages/database/prisma/schema.prisma",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "type-check": "turbo type-check",
+    "type-check": "turbo run type-check",
     "clean": "rimraf ./node_modules ./packages/ui/node_modules ./apps/node_modules ./apps/docs/node_modules ./apps/web/node_modules ./packages/database/node_modules ./packages/types/node_modules ./packages/config-tailwind/node_modules ./packages/config-eslint/node_modules ./packages/config-typescript/node_modules ./pnpm-lock.yaml",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky",

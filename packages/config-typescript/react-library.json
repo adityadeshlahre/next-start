@@ -3,8 +3,8 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "lib": ["ES2015", "DOM"],
-    "module": "ESNext",
+    "lib": ["es2022", "DOM"],
+    "module": "NodeNext",
     "target": "ES6",
     "jsx": "react-jsx",
     "noEmit": true
